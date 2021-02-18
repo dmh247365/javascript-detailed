@@ -24,3 +24,4 @@ function getUser(id, callback) {
 
 ![cb-png](cb.png)
 
+![cb-png](carbonSmall.png)
