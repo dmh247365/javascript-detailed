@@ -27,3 +27,5 @@ function getUser(id, callback) {
 ![cb-png](carbonSmall.png)
 
 ![cb-png](carbonLarge.png)
+
+![cb-png](carbonFinal.png)
