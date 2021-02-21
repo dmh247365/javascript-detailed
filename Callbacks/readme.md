@@ -36,6 +36,11 @@ How to identify what is going on:-
    -  provided its 
 
 
+test1                      | test2
+![cb-svg](Rectangle1.svg)  | ![cb-svg](sampleStack.svg)
+
+
+
 ![cb-svg](Rectangle1.svg)
 
 
@@ -44,9 +49,13 @@ How to identify what is going on:-
 
 
 
+
+
 &nbsp;
 real life example of map function behind the scenes
 ### Example 2 - Used for synchronous operation
+
+![cb-svg](Rectangle1.svg) ![cb-svg](sampleStack.svg)
 
 
 
