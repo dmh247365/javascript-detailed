@@ -56,7 +56,23 @@ So walking through what happens:-
 this is a challenge
 
 
+![frame2-svg](Frame2.svg)
+
+
+this is a challenge
 
 
 ![frame3-svg](Frame3.svg)
 
+
+this is a challenge  
+
+![frame4-svg](Frame4.svg)
+
+
+this is a challenge  
+
+![frame5-svg](Frame5.svg)
+
+
+this is a challenge  
