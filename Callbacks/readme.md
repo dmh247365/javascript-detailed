@@ -50,5 +50,5 @@ We have a simple function which
 So walking through what happens:-
 
 
-![frame1-svg](frame1.svg)
+![frame1-svg](Frame1.svg)
 
