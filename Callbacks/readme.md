@@ -36,27 +36,19 @@ How to identify what is going on:-
    -  provided its 
 
 
-![cb-svg](Rectangle1.svg)
-
-
-![cb-svg](sampleStack.svg)
-
-
-![cb-svg](sampleStack.svg)
-
-
-![sampleFrame1-svg](sampleFrame1.svg)
-
-
-![sampleFrame2a-svg](sampleFrame2a.svg)
-
-
-
 &nbsp;
 real life example of map function behind the scenes
+
+
 ### Example 2 - Used for synchronous operation
 
+We have a simple function which 
+
+&nbsp;
+![cb2-svg](cb2.svg)
+
+So walking through what happens:-
 
 
-
+![frame1-svg](frame1.svg)
 
