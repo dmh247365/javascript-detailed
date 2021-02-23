@@ -67,6 +67,27 @@ this is a challenge
 
 this is a challenge  
 
+
+![fram3-1-svg](Frame3-1.svg)
+
+this is a challenge
+
+![frame3-2-svg](Frame3-2.svg)
+
+this is a challenge
+
+![frame3-3-svg](Frame3-3.svg)
+
+this is a challenge
+
+![frame3-5-svg](Frame3-4.svg)
+
+this is a challenge
+
+![frame3-6-svg](Frame3-6.svg)
+
+this is a challenge
+
 ![frame4-svg](Frame4.svg)
 
 
