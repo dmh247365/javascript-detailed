@@ -2,7 +2,7 @@
 
 Can be extremely confusing when you first start off, as they can be used for synchronous and asynchronous operations.
 
-When used synchronously, the callback is ultimately part of the JS single thread of execution, in fact we don't step out of it.
+When used synchronously, the callback is ultimately part of the JS single thread of execution `(TOE)`, in fact we don't step out of it.
 
 When used asynchronously, we in effect step out of the JS thread of execution, this is done by means of invoking a node API, which outside of the JS single thread goes and does its thing, then via the event loop is brought back to the JS single thread of execution.
 
@@ -15,7 +15,7 @@ Or
 We let the operation go off (away from our single thread) do its thing and get the result, in the meantime the our single thread continues with the other code, then at a later stage we bring back the result and use it.  
 
 
-Callbacks key fetures:-
+Callbacks key features:-
 - Its used for results of asynchronous operations 
 - A callback is a function
 - It is passed into another function as an argument
@@ -65,41 +65,43 @@ Call Stack - how JS keeps track of what function is currently being ran, ie its 
 &nbsp;
 ![cb2-svg](cb2.svg)
 
-So walking through what happens:-
+So walking through the code in detail:-
 
 ### Frame1
 ![frame1-svg](Frame1.svg)
 
 1. The global execution context (GEC) is created by default, and is put on the base of the `Call Stack`.
 
-2. The JS parses xxxxxxxxx
+2. Now because `global` is top of the Call Stack a global execution context is created, which consists of two areas, one being the JS thread of execution area and the other being the memory associated with the execution context.  
+   Into global memory is loaded the variables and their values, example the variable `multiplyBy2` is loaded and its value is a function, so all the function code is loaded in.
 
-3. The variable `result` is declared, but at this stage it has not been assigned a value so its unitialised.
+3. The variable `result` is declared, but at this stage it has not been assigned a value so its `unitialised`.
 
-
+So in summary:-
+The variable on line 11 and the functions on lines 1 & 9 are loaded into the `global memory`. xxxxxxx is this hoisting??? xxxxxxx
+awaiting the JS thread of execution to start.
 
 ### Frame2
 ![frame2-svg](Frame2.svg)
 
-Now the JS parser starts going through the code line by line.
+Now the JS parser starts going through the code from top to bottom, on line 11 it comes across a call to execute the `copyArrayAndManipulate` function, so the following occurs:-
 
-1. Onto the `Call Stack` is placed the `copyArrayAndManipulate()` function. 
+1. The `copyArrayAndManipulate()` function is placed on the `Call Stack`. 
 
-2. This creates an execution context, which our JS single thread of excution now steps into.
+2. This then creates an execution context and populates its corresponding local memory with:-
+   the variable `array`, whose value is an array of three integers and comes from the first argument passed in.
+   the variable `instructions`, whose value is a function which comes from the second argument passed in (multiplyBy2 function).
+   the variable `output` which is a blank array, which is derived from within the function block.
+
 
 Everytime a function is executed an execution context for that function is created (FEC), which basically means it creates a local execution context and local memory allocation to store variables, parameters and function declarations.
 
-3. The function has two arguments an array & multiplyBy2  
-   .1 - the array is `[ 1, 2, 3 ]`
-   .2 - multiplyBy2 is a function, so the whole `function` is passed in.
-
-4. So in the local memory of the execution context we xx
 
 ### Frame3
 ![frame3-svg](Frame3.svg)
 
+1. - The `TOE` hits line 3 the `for statement`, and sets up a loop three expressions (initial, conditional & increment).
 
-this is a challenge  
 
 ### Frame3-0
 ![fram3-0-svg](Frame3-0.svg)
