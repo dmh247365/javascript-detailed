@@ -92,8 +92,8 @@ Now the JS parser starts going through the code from top to bottom, on line 11 i
 1. The `copyArrayAndManipulate()` function is placed on the `Call Stack`. 
 
 2. This then creates an execution context and populates its corresponding local memory with:-
-   the variable `array`, whose value is an array of three integers and comes from the first argument passed in.
-   the variable `instructions`, whose value is a function which comes from the second argument passed in (multiplyBy2 function).
+   the parameter `array`, whose value is the first argument passed in, an array of three integers.
+   the parameter `instructions`, whose value is second argument passed in, a function (multiplyBy2 function).
    the variable `output` which is a blank array, which is derived from within the function block.
 
 
