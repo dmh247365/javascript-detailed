@@ -31,7 +31,7 @@ How to identify what is going on:-
 
 1. Line 2 is a function, how do we know?
    - it takes in arguments
-   - if we howver over it with cursor, VScode will tell us it is
+   - if we however over it with cursor, VScode will tell us it is
    - if we look up its name, on line 7 it tells us it is  
 2. Into the getUser function, the final argument we pass in is a function
    - function are first class objects (they have all the features of an object)
@@ -46,7 +46,7 @@ real life example of map function behind the scenes
 
 ### Example 2 - Used for synchronous operation
 
-Remember in this script everything is done within the JS environment running in Node, that is to say we are not stepping out of it and using any Node API's thus no engagement of the `Callback queue` or the `Event loop`.
+Remember in this script everything is done within the JS environment running in Node, that is to say we are not stepping out of it and using any Node APIs thus no engagement of the `Callback queue` or the `Event loop`.
 
 
 We have a simple function which 
@@ -78,7 +78,7 @@ So walking through the code in detail:-
 2. Now because `global` is top of the Call Stack a global execution context is created, which consists of two areas, one being the JS thread of execution area and the other being the memory associated with the execution context.  
    Into global memory is loaded the variables and their values, example the variable `multiplyBy2` is loaded and its value is a function, so all the function code is loaded in.
 
-3. The variable `result` is declared, but at this stage it has not been assigned a value so its `unitialised`.
+3. The variable `result` is declared, but at this stage it has not been assigned a value so its `uninitialised`.
 
 So in summary:-
 The variable on line 11 and the functions on lines 1 & 9 are loaded into the `global memory`.
@@ -97,22 +97,22 @@ Now the JS parser starts going through the code from top to bottom, on line 11 i
    the variable `output` which is a blank array, which is derived from within the function block.
 
 
-Everytime a function is executed an execution context for that function is created (FEC), which basically means it creates a local execution context and local memory allocation to store variables, parameters and function declarations.
+Every time a function is executed an execution context for that function is created (FEC), which basically means it creates a local execution context and local memory allocation to store variables, parameters and function declarations.
 
 
 ### Frame 3-0
-![fram3-0-svg](svg/Frame3-0.svg)
+![frame3-0-svg](svg/Frame3-0.svg)
 
 1. - The `TOE` hits line 3 the `for statement`, and sets up a loop with three expressions (initial, conditional & increment).
    the `initial expression`  is set to 0 and the `condition expression` is true so we can move onto the next stage.
 
 
 ### Frame 3-1
-![fram3-1-svg](svg/Frame3-1.svg)
+![frame3-1-svg](svg/Frame3-1.svg)
 
 Now we enter the code block of the `for statement`.
 1. - on line 4 we have an object, method & function combination. We invoke the `multiplyBy2` function, thus its placed on top of the call stack.
-2. - We now create a local execution context for the function which is on top of the call stack. Into its memory is loaded the `input` variable we passed in, with its value of `1`. In the execution context the `TOE`, per line 9 multiplies the `input` which is 1 by 2 and returns out 2. 
+2. - We now create a local execution context for the function which is on top of the call stack. Into its memory is loaded the parameter `input` with its value of `1` coming from the passed in argument. In the execution context the `TOE`, per line 9 multiplies the `input` which is 1 by 2 and returns out 2. 
    Now the multiplyBy2 function has completed and will be removed (popped) off the call stack.
 3. - The object, method combo now kicks in, onto the end of our blank `output` array we insert the returned value of `2` from above.
 4. - The `increment expression` now increases `i` to `1`.
@@ -160,13 +160,13 @@ Now we enter the code block of the `for statement`.
 2. - The `condition expression` is false, ie 3 is not less than 3.
 3. - Also note that the variable `output` now has a populated array containing the integers 2, 4 & 6.
 
-As the `for loops` condtional expression has not be met we exit out of it.
+As the `for loops` conditional expression has not be met we exit out of it.
 
 ### Frame 4
 ![frame4-svg](svg/Frame4.svg)
 
 
-1. - We now hit line 6 which is the `return statement` for the copyArrrayAndManipulate function. 
+1. - We now hit line 6 which is the `return statement` for the copyArrayAndManipulate function. 
 
 2. - the variable `output` is stored in the execution context's local memory.
 
