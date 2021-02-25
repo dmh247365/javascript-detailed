@@ -6,9 +6,6 @@ When used synchronously, the callback is ultimately part of the JS single thread
 
 When used asynchronously, we in effect step out of the JS thread of execution, this is done by means of invoking a node API, which outside of the JS single thread goes and does its thing, then via the event loop is brought back to the JS single thread of execution.
 
-Infact until the advent of promises they where the only way to handle asychronous operations.
-
-
 #### Remember what do we mean by async operations
 The whole purpose it that need the result of an operations such as getting a file etc, the operation will take sometime. We can either wait, ie handle the operations synchronously, this will however block our single threaded code from doing anything else while the operation to complete.  
 Or  
@@ -26,7 +23,7 @@ Callbacks key features:-
    
 &nbsp;
 
-![cb-png](carbonFinal.png)
+![cb-png](/png/carbonFinal.png)
 
 How to identify what is going on:-  
 
@@ -63,7 +60,11 @@ Call Stack - how JS keeps track of what function is currently being ran, ie its 
 
 
 &nbsp;
-![cb2-svg](/svg/cb2.svg)
+
+![copyArrayAndManipulate](/png/copyArrayAndManipulate.png)
+
+
+
 
 So walking through the code in detail:-
 
@@ -97,14 +98,11 @@ Now the JS parser starts going through the code from top to bottom, on line 11 i
 Everytime a function is executed an execution context for that function is created (FEC), which basically means it creates a local execution context and local memory allocation to store variables, parameters and function declarations.
 
 
-### Frame3
-![frame3-svg](/svg/Frame3.svg)
-
-
 ### Frame3-0
 ![fram3-0-svg](/svg/Frame3-0.svg)
 
 1. - The `TOE` hits line 3 the `for statement`, and sets up a loop with three expressions (initial, conditional & increment).
+   the `initial expression`  is set to 0 and the `condition expression` is true so we can move onto the next stage.
 
 
 ### Frame3-1
@@ -112,36 +110,71 @@ Everytime a function is executed an execution context for that function is creat
 
 Now we enter the code block of the `for statement`.
 1. - on line 4 we have an object, method & function combination. We invoke the `multiplyBy2` function, thus its placed on top of the call stack.
-2. - We now create a local execution context for the function which is on top of the call stack. Into its 
+2. - We now create a local execution context for the function which is on top of the call stack. Into its memory is loaded the `input` variable we passed in, with its value of `1`. In the execution context the `TOE`, per line 9 multiplies the `input` which is 1 by 2 and returns out 2. 
+   Now the multiplyBy2 function has completed and will be removed (popped) off the call stack.
+3. - The object, method combo now kicks in, onto the end of our blank `output` array we insert the returned value of `2` from above.
+4. - The `increment expression` now increases `i` to `1`.
 
 ### Frame3-2
 ![frame3-2-svg](/svg/Frame3-2.svg)
 
-this is a challenge
+1. - As can be seen we are back in the `copyArrayAndManipulate` function.
+2. - The `condition expression` is true, ie 1 is less than 3.
+3. - Also note that the variable `output` now has a populated array containing the integer 2.
 
 ### Frame3-3
 ![frame3-3-svg](/svg/Frame3-3.svg)
 
-this is a challenge
+1. - on line 4 we have an object, method & function combination. We invoke the `multiplyBy2` function, thus its placed on top of the call stack.
+2. - We now create a local execution context for the function which is on top of the call stack. Into its memory is loaded the `input` variable we passed in, with its value of `2`. In the execution context the `TOE`, per line 9 multiplies the `input` which is 2 by 2 and returns out 4. 
+   Now the multiplyBy2 function has completed and will be removed (popped) off the call stack.
+3. - The object, method combo now kicks in, onto the end of our blank `output` array we insert the returned value of `4` from above.
+4. - The `increment expression` now increases `i` to `2`.
+
 
 ### Frame3-4
-![frame3-5-svg](/svg/Frame3-4.svg)
+![frame3-4-svg](/svg/Frame3-4.svg)
 
-this is a challenge
+1. - As can be seen we are back in the `copyArrayAndManipulate` function.
+2. - The `condition expression` is true, ie 2 is less than 3.
+3. - Also note that the variable `output` now has a populated array containing the integers 2 & 4.
+
 
 ### Frame3-5
+![frame3-5-svg](/svg/Frame3-5.svg)
+
+1. - on line 4 we have an object, method & function combination. We invoke the `multiplyBy2` function, thus its placed on top of the call stack.
+2. - We now create a local execution context for the function which is on top of the call stack. Into its memory is loaded the `input` variable we passed in, with its value of `3`. In the execution context the `TOE`, per line 9 multiplies the `input` which is 3 by 2 and returns out 6. 
+   Now the multiplyBy2 function has completed and will be removed (popped) off the call stack.
+3. - The object, method combo now kicks in, onto the end of our blank `output` array we insert the returned value of `6` from above.
+4. - The `increment expression` now increases `i` to `3`.
+
+
+
+### Frame3-6
 ![frame3-6-svg](/svg/Frame3-6.svg)
 
-this is a challenge
+1. - As can be seen we are back in the `copyArrayAndManipulate` function.
+2. - The `condition expression` is false, ie 3 is not less than 3.
+3. - Also note that the variable `output` now has a populated array containing the integers 2, 4 & 6.
+
+As the `for loops` condtional expression has not be met we exit out of it.
 
 ### Frame4
 ![frame4-svg](/svg/Frame4.svg)
 
 
-this is a challenge  
+1. - We now hit line 6 which is the `return statement` for the copyArrrayAndManipulate function. 
+
+2. - the variable `output` is stored in the execution context's local memory.
+
+3. - We pop the `copyArrayAndManipulate` function off the call stack and pass it return out to the variable `result` which is in the global memory.
 
 ### Frame5
 ![frame5-svg](/svg/Frame5.svg)
 
 
-this is a challenge  
+1. the `TOE` now hits line 13 and return to the console the value of result which is `[2, 4, 6]`
+
+There is no further code to execute so the script ends and global is popped off the call stack. 
+
