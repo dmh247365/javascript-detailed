@@ -63,12 +63,12 @@ Call Stack - how JS keeps track of what function is currently being ran, ie its 
 
 
 &nbsp;
-![cb2-svg](cb2.svg)
+![cb2-svg](/svg/cb2.svg)
 
 So walking through the code in detail:-
 
 ### Frame1
-![frame1-svg](Frame1.svg)
+![frame1-svg](/svg/Frame1.svg)
 
 1. The global execution context (GEC) is created by default, and is put on the base of the `Call Stack`.
 
@@ -82,7 +82,7 @@ The variable on line 11 and the functions on lines 1 & 9 are loaded into the `gl
 awaiting the JS thread of execution to start.
 
 ### Frame2
-![frame2-svg](Frame2.svg)
+![frame2-svg](/svg/Frame2.svg)
 
 Now the JS parser starts going through the code from top to bottom, on line 11 it comes across a call to execute the `copyArrayAndManipulate` function, so the following occurs:-
 
@@ -98,50 +98,50 @@ Everytime a function is executed an execution context for that function is creat
 
 
 ### Frame3
-![frame3-svg](Frame3.svg)
-
-1. - The `TOE` hits line 3 the `for statement`, and sets up a loop three expressions (initial, conditional & increment).
+![frame3-svg](/svg/Frame3.svg)
 
 
 ### Frame3-0
-![fram3-0-svg](Frame3-0.svg)
+![fram3-0-svg](/svg/Frame3-0.svg)
 
-this is a challenge
+1. - The `TOE` hits line 3 the `for statement`, and sets up a loop with three expressions (initial, conditional & increment).
 
 
 ### Frame3-1
-![fram3-1-svg](Frame3-1.svg)
+![fram3-1-svg](/svg/Frame3-1.svg)
 
-this is a challenge
+Now we enter the code block of the `for statement`.
+1. - on line 4 we have an object, method & function combination. We invoke the `multiplyBy2` function, thus its placed on top of the call stack.
+2. - We now create a local execution context for the function which is on top of the call stack. Into its 
 
 ### Frame3-2
-![frame3-2-svg](Frame3-2.svg)
+![frame3-2-svg](/svg/Frame3-2.svg)
 
 this is a challenge
 
 ### Frame3-3
-![frame3-3-svg](Frame3-3.svg)
+![frame3-3-svg](/svg/Frame3-3.svg)
 
 this is a challenge
 
 ### Frame3-4
-![frame3-5-svg](Frame3-4.svg)
+![frame3-5-svg](/svg/Frame3-4.svg)
 
 this is a challenge
 
 ### Frame3-5
-![frame3-6-svg](Frame3-6.svg)
+![frame3-6-svg](/svg/Frame3-6.svg)
 
 this is a challenge
 
 ### Frame4
-![frame4-svg](Frame4.svg)
+![frame4-svg](/svg/Frame4.svg)
 
 
 this is a challenge  
 
 ### Frame5
-![frame5-svg](Frame5.svg)
+![frame5-svg](/svg/Frame5.svg)
 
 
 this is a challenge  
