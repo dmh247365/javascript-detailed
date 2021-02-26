@@ -39,11 +39,21 @@ How to identify what is going on:-
 3. HOF also follow DRY, ie we could pass in any function as the argument to getUser.
    -  provided its 
 
+&nbsp;
+
+### Frame 1
+![AsyncFrame1-svg](svg/AsyncFrame1.svg)
+
+
+
+
+
+
+
 
 &nbsp;
 real life example of map function behind the scenes
-
-
+ 
 ### Example 2 - Used for synchronous operation
 
 Remember in this script everything is done within the JS environment running in Node, that is to say we are not stepping out of it and using any Node APIs thus no engagement of the `Callback queue` or the `Event loop`.
@@ -57,7 +67,7 @@ reminder:
 
 Aside - the event loop is in charge of determining what function is next allowed on the call stack and thus will be ran.
 
-Call Stack - how JS keeps track of what function is currently being ran, ie its the one that is top of the Call Stack.
+Call Stack - how JS keeps track of what function is currently being ran, ie its the one that is top of the Call Stack. The Call Stack is simply a stack (record) of calls to functions (that are still open), recorded in a LIFO structure.
 
 
 
@@ -75,7 +85,7 @@ So walking through the code in detail:-
 
 1. The global execution context (GEC) is created by default, and is put on the base of the `Call Stack`.
 
-2. Now because `global` is top of the Call Stack a global execution context is created, which consists of two areas, one being the JS thread of execution area and the other being the memory associated with the execution context.  
+2. Now because `global` is top of the Call Stack a global execution context is created, which consists of two areas, one being the JS thread of execution area and the other being the memory associated with the execution context (the actual name is variable environment. but memory is more descriptive).
    Into global memory is loaded the variables and their values, example the variable `multiplyBy2` is loaded and its value is a function, so all the function code is loaded in.
 
 3. The variable `result` is declared, but at this stage it has not been assigned a value so its `uninitialised`.
