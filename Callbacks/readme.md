@@ -104,7 +104,7 @@ Every time a function is executed an execution context for that function is crea
 ![frame3-0-svg](svg/Frame3-0.svg)
 
 1. - The `TOE` hits line 3 the `for statement`, and sets up a loop with three expressions (initial, conditional & increment).
-   the `initial expression`  is set to 0 and the `condition expression` is true so we can move onto the next stage.
+   the `initial expression`  is set to 0 and the `conditional expression` is true so we can move onto the next stage.
 
 
 ### Frame 3-1
@@ -112,7 +112,7 @@ Every time a function is executed an execution context for that function is crea
 
 Now we enter the code block of the `for statement`.
 1. - on line 4 we have an object, method & function combination. We invoke the `multiplyBy2` function, thus its placed on top of the call stack.
-2. - We now create a local execution context for the function which is on top of the call stack. Into its memory is loaded the parameter `input` with its value of `1` coming from the passed in argument. In the execution context the `TOE`, per line 9 multiplies the `input` which is 1 by 2 and returns out 2. 
+2. - We now create a local execution context for the function which is on top of the call stack. Into its memory is loaded the parameter `input` with its value of `1` coming from the passed in argument. In the execution context the `TOE`, per line 9 multiplies the `input` which is 1 by 2 and returns out `2` ie the value of `input`. 
    Now the multiplyBy2 function has completed and will be removed (popped) off the call stack.
 3. - The object, method combo now kicks in, onto the end of our blank `output` array we insert the returned value of `2` from above.
 4. - The `increment expression` now increases `i` to `1`.
@@ -121,14 +121,14 @@ Now we enter the code block of the `for statement`.
 ![frame3-2-svg](svg/Frame3-2.svg)
 
 1. - As can be seen we are back in the `copyArrayAndManipulate` function.
-2. - The `condition expression` is true, ie 1 is less than 3.
+2. - The `conditional expression` is true, ie 1 is less than 3.
 3. - Also note that the variable `output` now has a populated array containing the integer 2.
 
 ### Frame 3-3
 ![frame3-3-svg](svg/Frame3-3.svg)
 
 1. - on line 4 we have an object, method & function combination. We invoke the `multiplyBy2` function, thus its placed on top of the call stack.
-2. - We now create a local execution context for the function which is on top of the call stack. Into its memory is loaded the `input` variable we passed in, with its value of `2`. In the execution context the `TOE`, per line 9 multiplies the `input` which is 2 by 2 and returns out 4. 
+2. - We now create a local execution context for the function which is on top of the call stack. Into its memory is loaded the `input` variable we passed in, with its value of `2`. In the execution context the `TOE`, per line 9 multiplies the `input` which is 2 by 2 and returns out `4` ie the value of `input`. 
    Now the multiplyBy2 function has completed and will be removed (popped) off the call stack.
 3. - The object, method combo now kicks in, onto the end of our blank `output` array we insert the returned value of `4` from above.
 4. - The `increment expression` now increases `i` to `2`.
@@ -138,7 +138,7 @@ Now we enter the code block of the `for statement`.
 ![frame3-4-svg](svg/Frame3-4.svg)
 
 1. - As can be seen we are back in the `copyArrayAndManipulate` function.
-2. - The `condition expression` is true, ie 2 is less than 3.
+2. - The `conditional expression` is true, ie 2 is less than 3.
 3. - Also note that the variable `output` now has a populated array containing the integers 2 & 4.
 
 
@@ -146,7 +146,7 @@ Now we enter the code block of the `for statement`.
 ![frame3-5-svg](svg/Frame3-5.svg)
 
 1. - on line 4 we have an object, method & function combination. We invoke the `multiplyBy2` function, thus its placed on top of the call stack.
-2. - We now create a local execution context for the function which is on top of the call stack. Into its memory is loaded the `input` variable we passed in, with its value of `3`. In the execution context the `TOE`, per line 9 multiplies the `input` which is 3 by 2 and returns out 6. 
+2. - We now create a local execution context for the function which is on top of the call stack. Into its memory is loaded the `input` variable we passed in, with its value of `3`. In the execution context the `TOE`, per line 9 multiplies the `input` which is 3 by 2 and returns out `6` ie the value of `input`. 
    Now the multiplyBy2 function has completed and will be removed (popped) off the call stack.
 3. - The object, method combo now kicks in, onto the end of our blank `output` array we insert the returned value of `6` from above.
 4. - The `increment expression` now increases `i` to `3`.
@@ -157,7 +157,7 @@ Now we enter the code block of the `for statement`.
 ![frame3-6-svg](svg/Frame3-6.svg)
 
 1. - As can be seen we are back in the `copyArrayAndManipulate` function.
-2. - The `condition expression` is false, ie 3 is not less than 3.
+2. - The `conditional expression` is false, ie 3 is not less than 3.
 3. - Also note that the variable `output` now has a populated array containing the integers 2, 4 & 6.
 
 As the `for loops` conditional expression has not be met we exit out of it.
@@ -170,13 +170,13 @@ As the `for loops` conditional expression has not be met we exit out of it.
 
 2. - the variable `output` is stored in the execution context's local memory.
 
-3. - We pop the `copyArrayAndManipulate` function off the call stack and pass it return out to the variable `result` which is in the global memory.
+3. - We pop the `copyArrayAndManipulate` function off the call stack, we return `[ 2, 4, 6 ]` ie the value of output and this becomes the value of the global variable `result`.
 
 ### Frame 5
 ![frame5-svg](svg/Frame5.svg)
 
 
-1. the `TOE` now hits line 13 and return to the console the value of result which is `[2, 4, 6]`
+1. the `TOE` now hits line 13 and return to the console the value of the variable `result` which is the array `[2, 4, 6]`
 
 There is no further code to execute so the script ends and global is popped off the call stack. 
 
