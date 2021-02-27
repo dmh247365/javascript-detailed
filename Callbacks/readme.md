@@ -45,10 +45,28 @@ How to identify what is going on:-
 ![AsyncFrame1-svg](svg/AsyncFrame1.svg)
 
 
+1. The global execution context (GEC) is created by default, and is put on the base of the `Call Stack`.
+
+2. Now because `global` is top of the Call Stack a global execution context is created, which consists of two areas, one being the JS thread of execution area and the other being the memory associated with the execution context (the actual name is variable environment. but memory is more descriptive).
+   Into global memory is hoisted the variables and their values, example the variable `getUser` is loaded and its value is a function, so all the function code is loaded in.
+
+
+&nbsp;
+
+### Frame 2
+![AsyncFrame2-svg](svg/AsyncFrame2.svg)
+
+blah blah blah
 
 
 
+&nbsp;
 
+### Frame 3
+![AsyncFrame3-svg](svg/AsyncFrame3.svg)
+
+
+blah blah
 
 
 &nbsp;
@@ -86,12 +104,12 @@ So walking through the code in detail:-
 1. The global execution context (GEC) is created by default, and is put on the base of the `Call Stack`.
 
 2. Now because `global` is top of the Call Stack a global execution context is created, which consists of two areas, one being the JS thread of execution area and the other being the memory associated with the execution context (the actual name is variable environment. but memory is more descriptive).
-   Into global memory is loaded the variables and their values, example the variable `multiplyBy2` is loaded and its value is a function, so all the function code is loaded in.
+   Into global memory is hoisted the variables and their values, example the variable `multiplyBy2` is loaded and its value is a function, so all the function code is loaded in.
 
 3. The variable `result` is declared, but at this stage it has not been assigned a value so its `uninitialised`.
 
 So in summary:-
-The variable on line 11 and the functions on lines 1 & 9 are loaded into the `global memory`.
+The variable on line 11 and the functions on lines 1 & 9 are hoisted into the `global memory`.
 awaiting the JS thread of execution to start.
 
 ### Frame 2
@@ -104,7 +122,7 @@ Now the JS parser starts going through the code from top to bottom, on line 11 i
 2. This then creates an execution context and populates its corresponding local memory with:-
    the parameter `array`, whose value is the first argument passed in, an array of three integers.
    the parameter `instructions`, whose value is second argument passed in, a function (multiplyBy2 function).
-   the variable `output` which is a blank array, which is derived from within the function block.
+   the variable `output` is hoisted in which is a blank array, which is derived from within the function block.
 
 
 Every time a function is executed an execution context for that function is created (FEC), which basically means it creates a local execution context and local memory allocation to store variables, parameters and function declarations.
