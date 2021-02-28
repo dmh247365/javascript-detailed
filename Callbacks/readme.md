@@ -8,6 +8,8 @@ When used asynchronously, we in effect step out of the JS thread of execution, t
 
 Thread of Execution = Parsing and executing our code line by line.
 
+A callback is just a function that is invoked at a later stage wether by the HOF that takes it in or via the event loop if asynchronous.
+
 #### Remember what do we mean by async operations
 If we need the result of an operations such as getting a file etc, the operation will take sometime. We can either wait, ie handle the operations synchronously, this will however block our single threaded code from doing anything else while the operation to complete.  
 ### Or  
@@ -26,6 +28,13 @@ Callbacks key features:-
 &nbsp;
 
 ![cb-png](png/carbonFinal.png)
+
+
+![cb-png](png/asyncCallbackSimple.png)
+
+
+
+
 
 How to identify what is going on:-  
 
