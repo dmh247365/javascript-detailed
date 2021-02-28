@@ -29,12 +29,16 @@ Callbacks key features:-
 
 ![cb-png](png/carbonFinal.png)
 
+If we removed all the chatter what is the above about really:-
+
 
 ![cb-png](png/asyncCallbackSimple.png)
 
+So really all we have is a function called getUser thats takes in another function as a parameter and the function we pass in does a call to a Node API basically we want to invoke an async operation.
 
+But something that shouldn't be overlooked is that getUser is a higher order function (ie it takes in another function as a parameter, note a function that also returns a function is also classed as HOF ) and thus the function passed in, will be invoked 
 
-
+IMPORTANT:- where you define your functions (ie where you write them, not invoke them!!!), determines what variables your function has access to when you invoke it.
 
 How to identify what is going on:-  
 
