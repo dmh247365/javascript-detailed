@@ -36,9 +36,11 @@ If we removed all the chatter what is the above about really:-
 
 So really all we have is a function called getUser thats takes in another function as a parameter and the function we pass in does a call to a Node API basically we want to invoke an async operation.
 
-But something that shouldn't be overlooked is that getUser is a higher order function (ie it takes in another function as a parameter, note a function that also returns a function is also classed as HOF ) and thus the function passed in, will be invoked 
+But something that shouldn't be overlooked is that getUser is a higher order function (ie it takes in another function as a parameter, note a function that also returns a function is also classed as HOF ).
 
-IMPORTANT:- where you define your functions (ie where you write them, not invoke them!!!), determines what variables your function has access to when you invoke it.
+IMPORTANT:- where you define your functions (ie where you write them, not invoke them!!!), determines what variables your function has access to when, you invoke it.
+
+On line 2 we define the anonymous function, which is within the getUser function call. thus based on above our anonymous function will have access to the local memory of getUser ie its parameters & variables. thus is achieved through the concept of `closures`.
 
 How to identify what is going on:-  
 
