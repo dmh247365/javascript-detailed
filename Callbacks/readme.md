@@ -6,9 +6,14 @@ When used synchronously, the callback is ultimately part of the JS single thread
 
 When used asynchronously, we in effect step out of the JS thread of execution, this is done by means of invoking a node API, which outside of the JS single thread goes and does its thing, then via the event loop is brought back to the JS single thread of execution.
 
-Thread of Execution = Parsing and executing our code line by line.
+
+Execution context = doing the code line by line. globally or in a function, this is known as thread of execution. We are threading down executing each line and then the memory where you store stuff. Together these are known as `execution context`.
+And the `CallStack` tracks those execution contexts.
 
 A callback is just a function that is invoked at a later stage wether by the HOF that takes it in or via the event loop if asynchronous.
+
+Definition required for later:-
+Hoisting = variables and functions are hoisted to the top of the scope that they are declared in, whether that be the global scope or a function scope or a block scope depending upon the keyword used to define them.
 
 #### Remember what do we mean by async operations
 If we need the result of an operations such as getting a file etc, the operation will take sometime. We can either wait, ie handle the operations synchronously, this will however block our single threaded code from doing anything else while the operation to complete.  
@@ -35,6 +40,7 @@ If we removed all the chatter what is the above about really:-
 ![cb-png](png/asyncCallbackSimple.png)
 
 So really all we have is a function called getUser thats takes in another function as a parameter and the function we pass in does a call to a Node API basically we want to invoke an async operation.
+
 
 But something that shouldn't be overlooked is that getUser is a higher order function (ie it takes in another function as a parameter, note a function that also returns a function is also classed as HOF ).
 
