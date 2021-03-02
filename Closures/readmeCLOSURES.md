@@ -1,5 +1,6 @@
 ## Closures
 
+***** add in about `this` being created as well see proto ********* TODO
 Think of closures as `closed over variable environment`.
 
 JavaScript is lexically (aka statically) scoped. Which means when a function is defined (ie where it is written), it gets a hidden property called `[[ scope ]]` that references the `local Memory` (ie variable environment - proper name) where the function has been defined, thus determining the available variables.
