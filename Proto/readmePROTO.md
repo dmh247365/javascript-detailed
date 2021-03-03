@@ -16,7 +16,7 @@ the argument that Object.create excepts is always what will be stored in the pro
 
 note we also have an implicit (ie automatically filled in for us) parameter called `this`.
 
-JavaScript has its prototypal feature 
+JavaScript has its prototypal feature which basically says don't worry if you can't find the function/method on the object your currently in, I will go off up the proto and try and find it.
 
 Object have a connection to other objects through their proto property
 
