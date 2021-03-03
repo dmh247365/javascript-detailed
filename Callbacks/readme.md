@@ -127,7 +127,7 @@ So walking through the code in detail:-
 2. Now because `global` is top of the Call Stack a global execution context is created, which consists of two areas, one being the JS thread of execution area and the other being the memory associated with the execution context (the actual name is variable environment. but memory is more descriptive).
    Into global memory is hoisted the variables and their values, example the variable `multiplyBy2` is loaded and its value is a function, so all the function code is loaded in.
 
-3. The variable `result` is declared, but at this stage it has not been assigned a value so its `uninitialised`.
+3. The variable `result` is declared, but at this stage it has not been assigned a value so its `uninitialised` as we are using `const` to declare it.
 
 So in summary:-
 The variable on line 11 and the functions on lines 1 & 9 are hoisted into the `global memory`.
