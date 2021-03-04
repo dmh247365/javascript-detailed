@@ -124,6 +124,8 @@ So walking through the code in detail:-
 
 1. The global execution context (GEC) is created by default, and is put on the base of the `Call Stack`.
 
+Global just means its not inside of a function.
+
 2. Now because `global` is top of the Call Stack a global execution context is created, which consists of two areas, one being the JS thread of execution area and the other being the memory associated with the execution context (the actual name is variable environment. but memory is more descriptive).
    Into global memory is hoisted the variables and their values, example the variable `multiplyBy2` is loaded and its value is a function, so all the function code is loaded in.
 
