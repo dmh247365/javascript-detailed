@@ -61,3 +61,18 @@ blah blah
 ### Frame 6
 ![frame6-svg](svg/Frame6.svg)
 
+
+
+So in summary this is somewhat convoluted, in in order for us to set the dunda proto property value we have to:-  
+1. - blah blah
+2. - blah
+3. - blah
+4. - blah
+5. - blah
+
+
+Surely there is a better way??????
+
+The JavaScript gods have given us the `new` keyword...
+
+
